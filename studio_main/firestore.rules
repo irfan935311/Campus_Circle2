@@ -1,0 +1,74 @@
+
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+  
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    // Students can only update/delete their own data, but anyone can list/read students.
+    match /students/{userId} {
+      allow list, read: if isSignedIn();
+      allow update, delete: if request.auth.uid == userId;
+      // Allow creation of a student doc only if the user is creating their own doc
+      allow create: if isSignedIn() && request.auth.uid == userId;
+
+      // Students can manage their own participations
+      match /participations/{participationId} {
+        allow read, write: if isSignedIn() && request.auth.uid == userId;
+      }
+    }
+
+    // Allow reads for all signed in users, but only team members can write.
+    match /teams/{teamId} {
+      allow read: if isSignedIn();
+      // Users can create a team if they are signed in and are the creator
+      allow create: if isSignedIn() && request.auth.uid == request.resource.data.createdBy;
+      allow update, delete: if isSignedIn() && resource.data.createdBy == request.auth.uid;
+      
+      // Team members can list, read, and create messages in their team's chat.
+      match /messages/{messageId} {
+          // A user can list messages if they are a member of the team.
+          allow list, read: if request.auth.uid in get(/databases/$(database)/documents/teams/$(teamId)).data.members;
+          // A user can create a message if they are a member of the team.
+          allow create: if request.auth.uid in get(/databases/$(database)/documents/teams/$(teamId)).data.members;
+          // Messages are immutable
+          allow update, delete: if false; 
+      }
+    }
+
+    match /connections/{connectionId} {
+      // Allow read only if the requesting user is one of the two students in the connection
+      allow read, list: if isSignedIn() && (resource.data.studentId1 == request.auth.uid || resource.data.studentId2 == request.auth.uid);
+      // Allow create only if one of the students is creating it. This will be tightened to only be allowed via a function or server-side.
+      allow create: if isSignedIn() && (request.resource.data.studentId1 == request.auth.uid || request.resource.data.studentId2 == request.auth.uid);
+      
+      // Messages can be read/written by either student in the connection
+      match /messages/{messageId} {
+        allow read, list, create: if isSignedIn() && (get(/databases/$(database)/documents/connections/$(connectionId)).data.studentId1 == request.auth.uid || get(/databases/$(database)/documents/connections/$(connectionId)).data.studentId2 == request.auth.uid);
+        allow update, delete: if false; // Messages are immutable
+      }
+    }
+    
+    match /connectionRequests/{requestId} {
+        // Allow read if the user is either the sender or the receiver
+        allow read: if isSignedIn() && (resource.data.senderId == request.auth.uid || resource.data.receiverId == request.auth.uid);
+        // Allow sender to create a request
+        allow create: if isSignedIn() && request.resource.data.senderId == request.auth.uid;
+        // Allow receiver to update (accept/reject) or delete the request
+        allow update, delete: if isSignedIn() && resource.data.receiverId == request.auth.uid;
+    }
+
+
+    // Publicly readable collections
+    match /interests/{interestId} {
+      allow read: if isSignedIn();
+      allow write: if false; // Or admin only
+    }
+    match /skills/{skillId} {
+      allow read: if isSignedIn();
+      allow write: if false; // Or admin only
+    }
+  }
+}
