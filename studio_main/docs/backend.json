@@ -1,0 +1,362 @@
+
+{
+  "entities": {
+    "Student": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Student",
+      "type": "object",
+      "description": "Represents a student in the Campus Circle application.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the student entity."
+        },
+        "collegeId": {
+            "type": "string",
+            "description": "The student's official college ID number."
+        },
+        "firstName": {
+          "type": "string",
+          "description": "The first name of the student."
+        },
+        "lastName": {
+          "type": "string",
+          "description": "The last name of the student."
+        },
+        "email": {
+          "type": "string",
+          "description": "The email address of the student.",
+          "format": "email"
+        },
+        "profilePictureUrl": {
+          "type": "string",
+          "description": "URL of the student's profile picture.",
+          "format": "uri"
+        },
+        "bio": {
+            "type": "string",
+            "description": "A short bio or headline for the student."
+        },
+        "interestIds": {
+          "type": "array",
+          "description": "References to Interests. (Relationship: Student N:N Interest)",
+          "items": {
+            "type": "string"
+          }
+        },
+        "skillIds": {
+          "type": "array",
+          "description": "References to Skills. (Relationship: Student N:N Skill)",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "id",
+        "email",
+        "collegeId"
+      ]
+    },
+    "Team": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Team",
+      "type": "object",
+      "description": "Represents a team formed by students for college projects.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the team entity."
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the team."
+        },
+        "description": {
+          "type": "string",
+          "description": "A brief description of the team and its purpose."
+        },
+        "creationDate": {
+          "type": "string",
+          "description": "The date when the team was created.",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "description",
+        "creationDate"
+      ]
+    },
+    "TeamMember": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "TeamMember",
+      "type": "object",
+      "description": "Represents a member of a team.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the team member entity."
+        },
+        "teamId": {
+          "type": "string",
+          "description": "Reference to Team. (Relationship: Team 1:N TeamMember)"
+        },
+        "studentId": {
+          "type": "string",
+          "description": "Reference to Student. (Relationship: Student 1:N TeamMember)"
+        },
+        "role": {
+          "type": "string",
+          "description": "The role of the student in the team."
+        }
+      },
+      "required": [
+        "id",
+        "teamId",
+        "studentId",
+        "role"
+      ]
+    },
+    "Connection": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Connection",
+      "type": "object",
+      "description": "Represents a connection between two students.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the connection entity."
+        },
+        "studentId1": {
+          "type": "string",
+          "description": "Reference to Student. The ID of the first student in the connection."
+        },
+        "studentId2": {
+          "type": "string",
+          "description": "Reference to Student. The ID of the second student in the connection."
+        },
+        "connectionDate": {
+          "type": "string",
+          "description": "The date when the connection was established.",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "id",
+        "studentId1",
+        "studentId2",
+        "connectionDate"
+      ]
+    },
+    "ConnectionRequest": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "title": "ConnectionRequest",
+        "type": "object",
+        "description": "Represents a request to connect from one student to another.",
+        "properties": {
+            "id": { "type": "string" },
+            "senderId": { "type": "string" },
+            "receiverId": { "type": "string" },
+            "status": { "type": "string", "enum": ["pending", "accepted", "rejected"] },
+            "requestDate": { "type": "string", "format": "date-time" }
+        },
+        "required": ["id", "senderId", "receiverId", "status", "requestDate"]
+    },
+    "Interest": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Interest",
+      "type": "object",
+      "description": "Represents an interest that a student may have.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the interest entity."
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the interest."
+        }
+      },
+      "required": [
+        "id",
+        "name"
+      ]
+    },
+    "Skill": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Skill",
+      "type": "object",
+      "description": "Represents a skill that a student possesses.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the skill entity."
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the skill."
+        }
+      },
+      "required": [
+        "id",
+        "name"
+      ]
+    },
+    "Participation": {
+      "title": "Participation",
+      "type": "object",
+      "description": "Represents a student's participation in an event.",
+      "properties": {
+        "id": { "type": "string" },
+        "studentId": { "type": "string" },
+        "title": { "type": "string" },
+        "description": { "type": "string" },
+        "date": { "type": "string", "format": "date" },
+        "category": { "type": "string", "enum": ["Project", "Sports", "Cultural"] },
+        "result": { "type": "string" }
+      },
+      "required": ["id", "studentId", "title", "date", "category"]
+    }
+  },
+  "auth": {
+    "providers": [
+      "password"
+    ]
+  },
+  "firestore": {
+    "structure": [
+      {
+        "path": "/students/{studentId}",
+        "definition": {
+          "entityName": "Student",
+          "schema": {
+            "$ref": "#/backend/entities/Student"
+          },
+          "description": "Stores student profile information. Path-based ownership enforces that only the student can modify their own data.",
+          "params": [
+            {
+              "name": "studentId",
+              "description": "The unique identifier for the student."
+            }
+          ]
+        },
+        "subcollections": {
+          "participations": {
+             "definition": {
+                "entityName": "Participation",
+                "schema": { "$ref": "#/backend/entities/Participation" },
+                "description": "Stores events the student has participated in."
+             }
+          }
+        }
+      },
+      {
+        "path": "/teams/{teamId}",
+        "definition": {
+          "entityName": "Team",
+          "schema": {
+            "$ref": "#/backend/entities/Team"
+          },
+          "description": "Stores team information. Includes denormalized 'members' map for authorization independence.",
+          "params": [
+            {
+              "name": "teamId",
+              "description": "The unique identifier for the team."
+            }
+          ]
+        },
+        "subcollections": {
+          "messages": {
+            "definition": {
+              "description": "A subcollection to store chat messages for the team."
+            }
+          }
+        }
+      },
+      {
+        "path": "/team_members/{teamMemberId}",
+        "definition": {
+          "entityName": "TeamMember",
+          "schema": {
+            "$ref": "#/backend/entities/TeamMember"
+          },
+          "description": "Represents the relationship between students and teams. Authorization relies on the corresponding Team document's 'members' map.",
+          "params": [
+            {
+              "name": "teamMemberId",
+              "description": "The unique identifier for the team member relationship."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/connections/{connectionId}",
+        "definition": {
+          "entityName": "Connection",
+          "schema": {
+            "$ref": "#/backend/entities/Connection"
+          },
+          "description": "Represents connections between students. Security rules will ensure that either studentId1 or studentId2 matches the requesting user's ID.",
+          "params": [
+            {
+              "name": "connectionId",
+              "description": "The unique identifier for the connection."
+            }
+          ]
+        },
+        "subcollections": {
+          "messages": {
+            "definition": {
+              "description": "A subcollection to store chat messages for the connection."
+            }
+          }
+        }
+      },
+      {
+        "path": "/connectionRequests/{requestId}",
+        "definition": {
+          "entityName": "ConnectionRequest",
+          "schema": { "$ref": "#/backend/entities/ConnectionRequest" },
+          "description": "Stores pending connection requests between users. Security rules enforce that only the sender can create and the receiver can update/delete."
+        }
+      },
+      {
+        "path": "/interests/{interestId}",
+        "definition": {
+          "entityName": "Interest",
+          "schema": {
+            "$ref": "#/backend/entities/Interest"
+          },
+          "description": "Stores a list of interests. Publicly readable.",
+          "params": [
+            {
+              "name": "interestId",
+              "description": "The unique identifier for the interest."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/skills/{skillId}",
+        "definition": {
+          "entityName": "Skill",
+          "schema": {
+            "$ref": "#/backend/entities/Skill"
+          },
+          "description": "Stores a list of skills. Publicly readable.",
+          "params": [
+            {
+              "name": "skillId",
+              "description": "The unique identifier for the skill."
+            }
+          ]
+        }
+      }
+    ],
+    "reasoning": "The Firestore data structure is designed to support the \"Campus Circle\" application's features, focusing on student profiles, team formation, and connections. The design emphasizes authorization independence to facilitate robust security rules and atomic operations. We leverage path-based ownership for private student data and membership maps for collaborative team data.\n\n1.  **Students Collection (`/students/{studentId}`):** Stores student profile information. Authorization is based on path ownership, ensuring only the student can modify their profile data. This approach adheres to the principle of Authorization Independence, eliminating the need for `get()` calls in security rules. The participations subcollection allows for storing a user's event history.\n2.  **Teams Collection (`/teams/{teamId}`):** Stores team information. The `members` map enables collaborative access control, allowing team members with appropriate roles to modify team data. The `members` map is denormalized within the `Team` document to avoid hierarchical authorization and enable atomic operations. QAPs are supported by ensuring all documents within the `teams` collection share the same security posture.\n3.  **TeamMembers Collection (`/team_members/{teamMemberId}`):** Represents the relationship between students and teams. The `teamId` field links each member to a specific team. Authorization is based on checking if the user's ID exists within the corresponding `Team` document's `members` map, ensuring only authorized members can access or modify team member information.\n4.  **Connections Collection (`/connections/{connectionId}`):** Represents connections between students. Security rules will likely require checking that either `studentId1` or `studentId2` matches the requesting user's ID. This setup permits secure listing based on user identity.\n5.  **ConnectionRequests Collection (`/connectionRequests/{requestId}`):** Stores pending connection requests. This allows for an asynchronous connection flow where one user can request to connect and the other can accept or reject. Security rules ensure that only the sender can create a request, and only the receiver can update its status.\n6.  **Interests Collection (`/interests/{interestId}`):** Stores a list of interests. This collection is publicly readable, allowing all users to browse and select interests for their profiles. Security rules will likely restrict creation and modification to administrative users.\n7.  **Skills Collection (`/skills/{skillId}`):** Stores a list of skills. Similar to interests, this collection is publicly readable and may have restricted creation/modification access.\n\nThis structure prioritizes clarity, security, and scalability by following the prescribed design principles. Authorization Independence is achieved through denormalization of membership data, simplifying security rules and supporting atomic operations. Structural Segregation ensures a homogeneous security posture within each collection, and Access Modeling standardizes authorization patterns for both private and collaborative data."
+  }
+}
+
+    
