@@ -1,0 +1,94 @@
+{
+  "placeholderImages": [
+    {
+      "id": "student-1",
+      "description": "Profile picture of Md Irfan Khan",
+      "imageUrl": "https://api.onedrive.com/v1.0/shares/u!aHR0cHM6Ly8xZHJ2Lm1zL2kvYy84ZWRhMWNjYmM2YWM3Y2Q4L0lRQ2tDckYzWmJrTlRJSGdejJMMy1RVllBU0d2VUY0NllUdkRUNk9UWEtNZUx2OD9lPWxIS2pvOQ==/root/content",
+      "imageHint": "student profile"
+    },
+    {
+      "id": "student-2",
+      "description": "Profile picture of Pranoti Kulkarni",
+      "imageUrl": "https://api.onedrive.com/v1.0/shares/u!aHR0cHM6Ly8xZHJ2Lm1zL2kvYy84ZWRhMWNjYmM2YWM3Y2Q4L0lRRG9uZzh4TDhFRVlZU2otbVNQeXpraEFkVEFKRzBSbE1oMUpuSXJmaExMaU5NP2U9c0JZOVZX/root/content",
+      "imageHint": "student profile"
+    },
+    {
+      "id": "student-3",
+      "description": "Profile picture of Preeti Jumbgi",
+      "imageUrl": "https://api.onedrive.com/v1.0/shares/u!aHR0cHM6Ly8xZHJ2Lm1zL2kvYy84ZWRhMWNjYmM2YWM3Y2Q4L0lRRFpsWm1XRHdWOFBhY0FoeWlKb0xNdkFZZWNBRkpxdWcxbVVjNmJUY0hidWR3P2U9S2tFOTlT/root/content",
+      "imageHint": "student profile"
+    },
+    {
+      "id": "student-4",
+      "description": "Profile picture of Iftequer Shaik",
+      "imageUrl": "https://api.onedrive.com/v1.0/shares/u!aHR0cHM6Ly8xZHJ2Lm1zL2kvYy84ZWRhMWNjYmM2YWM3Y2Q4L0lRQkxqa3NNUE41YlM0YzBCbU5Zb040LUFleGZuZ21GWlBMcmxOSXJlNEJDZjlzP2U9T096b29m/root/content",
+      "imageHint": "student profile"
+    },
+    {
+      "id": "student-5",
+      "description": "Profile picture of a student",
+      "imageUrl": "https://images.unsplash.com/photo-1688167217076-190b0ec8428f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxzdHVkZW50JTIwcHJvZmlsZXxlbnwwfHx8fDE3NjQxMjM3Njh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "student profile"
+    },
+    {
+      "id": "student-6",
+      "description": "Profile picture of a student",
+      "imageUrl": "https://images.unsplash.com/photo-1763575648299-112f891d0b64?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxzdHVkZW50JTIwcHJvZmlsZXxlbnwwfHx8fDE3NjQxMjM3Njh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "student profile"
+    },
+    {
+      "id": "student-7",
+      "description": "Profile picture of a student",
+      "imageUrl": "https://images.unsplash.com/photo-1600180758890-6b94519a8ba6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxzdHVkZW50JTIwcHJvZmlsZXxlbnwwfHx8fDE3NjQxMjM3Njh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "student profile"
+    },
+    {
+      "id": "student-8",
+      "description": "Profile picture of a student",
+      "imageUrl": "https://images.unsplash.com/photo-1557649662-c9e50cb8a271?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxzdHVkZW50JTIwcHJvZmlsZXxlbnwwfHx8fDE3NjQxMjM3Njh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "student profile"
+    },
+    {
+      "id": "student-9",
+      "description": "Profile picture of a student",
+      "imageUrl": "https://images.unsplash.com/photo-1712532308783-363ed1d9b9ef?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxzdHVkZW50JTIwcHJvZmlsZXxlbnwwfHx8fDE3NjQxMjM3Njh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "student profile"
+    },
+    {
+      "id": "student-10",
+      "description": "Profile picture of a student",
+      "imageUrl": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxzdHVkZW50JTIwcHJvZmlsZXxlbnwwfHx8fDE3NjQxMjM3Njh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "student profile"
+    },
+    {
+      "id": "student-11",
+      "description": "Profile picture of a student",
+      "imageUrl": "https://images.unsplash.com/photo-1719659004081-1f4ea681c9c8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxzdHVkZW50JTIwcHJvZmlsZXxlbnwwfHx8fDE3NjQxMjM3Njh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "student profile"
+    },
+    {
+      "id": "student-12",
+      "description": "Profile picture of a student",
+      "imageUrl": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxzdHVkZW50JTIwcHJvZmlsZXxlbnwwfHx8fDE3NjQxMjM3Njh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "student profile"
+    },
+    {
+      "id": "student-13",
+      "description": "Profile picture of a student",
+      "imageUrl": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxzdHVkZW50JTIwcHJvZmlsZXxlbnwwfHx8fDE3NjQxMjM3Njh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "student profile"
+    },
+    {
+      "id": "student-14",
+      "description": "Profile picture of a student",
+      "imageUrl": "https://images.unsplash.com/photo-1688167217076-190b0ec8428f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxzdHVkZW50JTIwcHJvZmlsZXxlbnwwfHx8fDE3NjQxMjM3Njh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "student profile"
+    },
+    {
+      "id": "student-15",
+      "description": "Profile picture of a student",
+      "imageUrl": "https://images.unsplash.com/photo-1712532308783-363ed1d9b9ef?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxzdHVkZW50JTIwcHJvZmlsZXxlbnwwfHx8fDE3NjQxMjM3Njh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "student profile"
+    }
+  ]
+}
